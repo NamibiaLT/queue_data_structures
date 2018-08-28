@@ -7,7 +7,7 @@ class MyCircularQueue
         @k = k
     end
 
-    arr = Array.new(k)
+    arr = Array.new(@k)
 
 =begin
     Insert an element into the circular queue. Return true if the operation is successful.
@@ -28,7 +28,7 @@ class MyCircularQueue
 =end
     def de_queue
       arr.delete(arr.sample(1, random: rng))
-      arr.size < k
+      arr.size < @k
     end
 
 =begin
@@ -60,6 +60,6 @@ class MyCircularQueue
     :rtype: Boolean
 =end
     def is_full()
-      arr.size == k
+      arr.size == @k
     end
 end
