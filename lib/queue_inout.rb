@@ -16,8 +16,3 @@ class InOutQueue
       @arr << element
   end
 end
-
-queue = InOutQueue.new([1,2])
-
-puts queue.dequeue
-puts queue.enqueue(3)
