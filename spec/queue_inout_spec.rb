@@ -1,6 +1,7 @@
 require 'rspec'
+require_relative 'queue_inout'
 
-RSpec.describe do
+RSpec.describe 'InOutQueue' do
   let(:queue_1) { InOutQueue.new([1,2]) }
   let(:queue_2) { InOutQueue.new([1,nil]) }
 
