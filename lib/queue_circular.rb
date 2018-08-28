@@ -4,10 +4,9 @@ class MyCircularQueue
     :type k: Integer
 =end
     def initialize(k)
-        @k = k
+      @k = k
+      @arr = Array.new(@k)
     end
-
-    arr = Array.new(@k)
 
 =begin
     Insert an element into the circular queue. Return true if the operation is successful.
@@ -15,11 +14,11 @@ class MyCircularQueue
     :rtype: Boolean
 =end
     def en_queue(value)
-      if arr.nil?
-        arr.shift
+      if @arr.nil?
+        @arr.shift
       end
-      arr << value
-      arr.include?(value)
+      @arr << value
+      @arr.include?(value)
     end
 
 =begin
@@ -27,8 +26,8 @@ class MyCircularQueue
     :rtype: Boolean
 =end
     def de_queue
-      arr.delete(arr.sample(1, random: rng))
-      arr.size < @k
+      @arr.delete(@arr.sample(1))
+      @arr.size < @k
     end
 
 =begin
@@ -36,7 +35,7 @@ class MyCircularQueue
     :rtype: Integer
 =end
     def front()
-      arr.first # also written as: arr[0] || arr.at(0)
+      @arr.first # also written as: @arr[0] || @arr.at(0)
     end
 
 =begin
@@ -44,7 +43,7 @@ class MyCircularQueue
     :rtype: Integer
 =end
     def rear()
-      arr.last # also written as: arr[-1]
+      @arr.last # also written as: @arr[-1]
     end
 
 =begin
@@ -52,7 +51,7 @@ class MyCircularQueue
     :rtype: Boolean
 =end
     def is_empty()
-      arr.empty?
+      @arr.empty?
     end
 
 =begin
@@ -60,6 +59,6 @@ class MyCircularQueue
     :rtype: Boolean
 =end
     def is_full()
-      arr.size == @k
+      @arr.size == @k
     end
 end
